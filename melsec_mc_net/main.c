@@ -132,12 +132,12 @@ int main(int argc, char** argv)
 
 #ifdef USE_SO
 	char szdllpath[1024];
-	strcpy(szdllpath, "../melsec_mc_net.so");
+	strcpy(szdllpath, "mcbin.dll");
 	libso_fun(szdllpath);
 #endif
 
-	char* plc_ip = "192.168.0.235";
-	int plc_port = 5002;
+	char* plc_ip = "192.168.41.250";
+	int plc_port = 8000;
 	if (argc > 1)
 	{
 		plc_ip = argv[1];
@@ -162,12 +162,12 @@ int main(int argc, char** argv)
 			bool all_success = false;
 			//////////////////////////////////////////////////////////////////////////
 			bool val = true;
-			ret = mc_write_bool(fd, "X1", val);
+			ret = mc_write_bool(fd, "M0", val);
 			printf("Write\t X1 \tbool:\t %d, \tret: %d\n", val, ret);
 			GET_RESULT(ret);
 
 			val = false;
-			ret = mc_read_bool(fd, "x1", &val);
+			ret = mc_read_bool(fd, "M0", &val);
 			printf("Read\t X1 \tbool:\t %d\n", val);
 			GET_RESULT(ret);
 

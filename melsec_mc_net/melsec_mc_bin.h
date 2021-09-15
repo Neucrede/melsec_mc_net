@@ -3,6 +3,10 @@
 
 #include "typedef.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 int mc_connect(char* ip_addr, int port, byte network_addr, byte station_addr);
 bool mc_disconnect(int fd);
 
@@ -35,5 +39,9 @@ bool mc_remote_run(int fd);
 bool mc_remote_stop(int fd);
 bool mc_remote_reset(int fd);
 char* mc_read_plc_type(int fd);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__H_MELSECMCNET_H__

@@ -1,6 +1,7 @@
 #ifndef __SOCKET_H_
 #define __SOCKET_H_
 
+#include <errno.h>
 #include "utill.h"
 
 int mc_write_msg(int fd, void* ptr, int nbytes);

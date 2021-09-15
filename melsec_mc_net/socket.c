@@ -6,7 +6,8 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <windows.h>
-#pragma comment(lib, "ws2_32.lib") /* Linking with winsock library */
+/* Linking with winsock library */
+/* #pragma comment(lib, "ws2_32.lib") */
 #else
 #include <errno.h>
 #include <sys/types.h>

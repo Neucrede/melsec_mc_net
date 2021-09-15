@@ -57,10 +57,10 @@ $(BIN):$(LINK_OBJ)
 
 ifeq ($(BUILD_SO), true)
 # gcc -o 是生成so
-	$(CC) -fPIC -shared -o $@.so $^
+	$(CC) -shared -o $@.dll $^ -lws2_32 -Wl,--out-implib,$@.a,--add-stdcall-alias
 else
 # gcc -o 是生成可执行文件
-	$(CC) -o $@ $^
+	$(CC) -o $@.exe $^  -lws2_32 
 endif
 
 #----------------------------------------------------------------1end-------------------
